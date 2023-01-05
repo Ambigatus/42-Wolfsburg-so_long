@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 10:14:59 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/12 17:50:50 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/01/05 16:18:38 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_map
 	int		exit;
 	int		player;
 	int		enemy;
+	char	**map_copy;
 	t_tile	**tiles;
 }	t_map;
 
@@ -172,7 +173,7 @@ void	render_sprts_fnc_util(t_data *data, t_sprt *s,
 			void (*f)(t_data*, t_sprt*));
 void	free_sprts_util(t_data *data, t_sprt *s);
 int		counter(char **map);
-void	counting_reachable(t_data *data, int x, int y, int *a, char **map_cpy);
+void	counting_reachable(t_data *data, int x, int y, int *a);
 int		has_valid_path(t_data *data);
 char	**create_matrix(char *map_path, t_data *map);
 

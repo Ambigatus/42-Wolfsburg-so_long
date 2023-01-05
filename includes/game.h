@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 20:14:49 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/26 16:08:52 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/01/05 16:29:11 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # define ENEMY				0
 # define SPAWN_RATE			3
 # define SCORE_LEN			4
-# define MAP_FILE			"simple.ber"
+# define MAP_FILE			"errors/no_path_2.ber"
 
 #endif

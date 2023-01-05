@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 09:36:34 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/26 15:02:31 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/01/05 16:27:24 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	load_map(t_data *data)
 	}
 	init_map_data(data, 0);
 	validate_map(data);
-	has_valid_path(data);
 }
 
 /* Puts on map tiles by their types and using malloc for each of them */

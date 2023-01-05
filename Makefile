@@ -8,7 +8,6 @@ PRINTF_DIR	= ft_printf
 
 INCLUDE_DIR	= includes
 
-SRCS_PLATFORM = game.c
 MLX_DIR		= mlx
 MLX_FLAGS	= -L$(MLX_DIR) -lmlx \
 			-framework OpenGL \
@@ -22,7 +21,7 @@ LIBS		= -L$(LIBFT_DIR) -lft \
 
 BUILD_DIR	= build
 SRC_DIR		= ./srcs
-SRCS		=	$(SRCS_PLATFORM) \
+SRCS		=	game.c \
 				main.c \
 				panel.c \
 				map.c \
@@ -40,7 +39,7 @@ SRCS		=	$(SRCS_PLATFORM) \
 				utils/tile_util.c \
 				utils/path_finder.c 
 
-OBJS = $(SRCS:%.c=$(BUILD_DIR)/%.o)
+OBJS =	$(SRCS:%.c=$(BUILD_DIR)/%.o)
 
 all: $(NAME)
 

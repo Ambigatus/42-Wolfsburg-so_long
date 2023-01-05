@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:12:29 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/26 15:42:48 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/01/05 16:28:07 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	initial(t_data *data, char *filename)
 		error_game(data, ERROR_MLX, NULL);
 	load_file(data, filename);
 	load_map(data);
+	has_valid_path(data);
 	load_tiles(data);
 	data->win = mlx_new_window(data->mlx, data->w, data->h, "So_long...");
 	if (!data->win)

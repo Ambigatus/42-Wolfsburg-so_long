@@ -6,7 +6,7 @@
 /*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:35:36 by ddzuba            #+#    #+#             */
-/*   Updated: 2022/12/26 15:38:45 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/01/05 16:25:54 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	counter(char **map)
 {
-	int i;
-	int j;
-	int count;
+	int	i;
+	int	j;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -50,11 +50,6 @@ char	**create_matrix(char *map_path, t_data *map)
 	counter = 0;
 	fd = open(map_path, O_RDONLY);
 	map2 = ft_calloc(1, 1000);
-	if (!map2)
-	{
-		free(map2);
-		exit(EXIT_FAILURE);
-	}
 	while (counter < h)
 	{
 		map2[counter] = malloc(sizeof(char) * w + 1);
@@ -71,8 +66,11 @@ char	**create_matrix(char *map_path, t_data *map)
 	return (map2);
 }
 
-void	counting_reachable(t_data *data, int x, int y, int *a, char **map_cpy)
+void	counting_reachable(t_data *data, int x, int y, int *a)
 {
+	char	**map_cpy;
+
+	map_cpy = data->map.map_copy;
 	if ((y < 0 || y > data->map.grid_y) || (x < 0 || x > data->map.grid_x))
 		return ;
 	if (map_cpy[y][x] == '1')
@@ -82,10 +80,10 @@ void	counting_reachable(t_data *data, int x, int y, int *a, char **map_cpy)
 	if (map_cpy[y][x] == 'E')
 		*a += 1;
 	map_cpy[y][x] = '1';
-	counting_reachable(data, x, y - 1, a, map_cpy);
-	counting_reachable(data, x, y + 1, a, map_cpy);
-	counting_reachable(data, x - 1, y, a, map_cpy);
-	counting_reachable(data, x + 1, y, a, map_cpy);
+	counting_reachable(data, x, y - 1, a);
+	counting_reachable(data, x, y + 1, a);
+	counting_reachable(data, x - 1, y, a);
+	counting_reachable(data, x + 1, y, a);
 }
 
 int	has_valid_path(t_data *data)
@@ -97,11 +95,12 @@ int	has_valid_path(t_data *data)
 	char	**map_cpy;
 
 	map_cpy = create_matrix(ft_strjoin("maps/", MAP_FILE), data);
+	data->map.map_copy = map_cpy;
 	a = 0;
 	y = 4;
 	x = 1;
 	count = counter(map_cpy);
-	counting_reachable(data, x, y, &a, map_cpy);
+	counting_reachable(data, x, y, &a);
 	if (count != a)
 	{
 		write(1, "No valid path", 13);

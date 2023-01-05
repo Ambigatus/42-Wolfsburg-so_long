@@ -32,11 +32,6 @@ $(NAME):
 clean:
 			@$(RM) $(OBJ)
 			@echo "$(BLUE)ft_printf\n object\n files\n cleaned!$(DEF_COLOR) "
-			@echo "$(RED)...ft_printf\n object\n files\n cleaned!$(DEF_COLOR)"
-			@echo "$(YELLOW)......ft_printf\n object\n files\n cleaned!$(DEF_COLOR)"
-			@echo "$(MAGENTA).........ft_printf\n object\n files\n cleaned!$(DEF_COLOR)"
-			@echo "$(GREEN).............ft_printf\n object\n files\n cleaned!$(DEF_COLOR)"
-			@echo "$(BLUE)................ft_printf\n object\n files\n cleaned!$(DEF_COLOR)"
 
 fclean:		clean
 			@$(RM) $(NAME)
