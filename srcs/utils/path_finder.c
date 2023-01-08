@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path_finder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ddzuba <ddzuba@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: ddzuba <ddzuba@student.wolfsburg.de>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 16:35:36 by ddzuba            #+#    #+#             */
-/*   Updated: 2023/01/05 16:25:54 by ddzuba           ###   ########.fr       */
+/*   Updated: 2023/01/08 14:45:40 by ddzuba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ char	**create_matrix(char *map_path, t_data *map)
 		counter++;
 	}
 	map2[counter] = NULL;
+	free(map_path);
 	return (map2);
 }
 
